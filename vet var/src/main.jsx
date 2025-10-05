@@ -21,6 +21,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import {Toaster} from "react-hot-toast"
 import PetSection from './components/PetSection'
 import ContextProvider from './store/context'
+import BecomePartner from './pages/BecomePartner'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -45,6 +46,7 @@ createRoot(document.getElementById('root')).render(
           <Route path = "/GroomerDashboard" element = {<GroomerDashboard/>}/>
           <Route path = "/MyProfile" element = {<MyProfile/>}/>
           <Route path = "/PetSection" element  ={<PetSection/>}/>
+          <Route path = "/becomepartner" element = {<BecomePartner/>}/>
         </Routes>
         
     </BrowserRouter>
