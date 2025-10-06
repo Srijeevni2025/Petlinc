@@ -3,8 +3,6 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import LabList from './components/LabList.jsx'
-import LabProfile from './components/LabProfile.jsx'
 import MyProfile from './components/MyProfile.jsx'
 import GroomingPackages from './pages/GroomingPackages'
 import SignIn from './pages/Signin'
@@ -33,8 +31,6 @@ createRoot(document.getElementById('root')).render(
         <Routes>
           <Route element = {<Navbar/>}/>
           <Route path = "/" element = {<App/>}/>
-          <Route path = "lablist" element = {<LabList/>}/>
-          <Route path = "LabProfile" element = {<LabProfile/>}/>
           <Route path = "MyProfile" element = {<MyProfile/>}/>
           <Route path = "/grooming-packages" element = {<GroomingPackages/>}/>
           <Route path = "/signin" element = {<SignIn/>}/>
@@ -44,7 +40,6 @@ createRoot(document.getElementById('root')).render(
           <Route path = "/GroomingCenterBooking" element = {<GroomingCenterBooking/>}/>
           <Route path = "/CheckoutPage" element = {<CheckoutPage/>}/>
           <Route path = "/GroomerDashboard" element = {<GroomerDashboard/>}/>
-          <Route path = "/MyProfile" element = {<MyProfile/>}/>
           <Route path = "/PetSection" element  ={<PetSection/>}/>
           <Route path = "/becomepartner" element = {<BecomePartner/>}/>
         </Routes>

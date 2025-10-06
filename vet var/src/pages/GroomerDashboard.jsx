@@ -1,8 +1,8 @@
-
+import { DynamicTable } from '../ui/table-utils/DynamicTable';
 
 // function GroomerDashboard(){
 //     return (
-       
+
 //         <div className="min-h-screen bg-slate-50 text-slate-900">
 //         {/* Top bar */}
 //         <header className="sticky top-0 z-30 bg-white border-b border-slate-200">
@@ -202,6 +202,32 @@ import { useState } from "react";
 
 function GroomerDashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+const headers = [
+  "SNo", "Name", "Pet Name", "Pet Bread", "Package", 
+  "Pincode", "Contact", "Status", "Action"
+];
+
+const data = [
+  {
+    SNo: 1,
+    Name: "Rajan",
+    "Pet Name": "Rocky",
+    "Pet Bread": "German Shepherd",
+    Package: "Basic Bath",
+    Pincode: 700107,
+    Contact: "9999999999",
+  },
+  {
+    SNo: 2,
+    Name: "Ananya",
+    "Pet Name": "Bella",
+    "Pet Bread": "Labrador",
+    Package: "Full Groom",
+    Pincode: 700091,
+    Contact: "9898989898",
+  },
+];
+
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
@@ -303,43 +329,7 @@ function GroomerDashboard() {
           </div>
 
           {/* Table */}
-          <div className="mt-6 overflow-x-auto rounded-xl border border-slate-200">
-            <table className="min-w-full text-sm">
-              <thead className="bg-slate-100 text-slate-700">
-                <tr>
-                  <Th>S.No</Th>
-                  <Th className="text-left">Name</Th>
-                  <Th className="text-left">Package</Th>
-                  <Th>Pincode</Th>
-                  <Th>Contact</Th>
-                  <Th>Status</Th>
-                  <Th>Action</Th>
-                </tr>
-              </thead>
-              <tbody>
-                {[
-                  {
-                    sno: 1,
-                    name: "Rajan",
-                    tests: "Basic Bath",
-                    pincode: 700107,
-                    contact: "9999999999",
-                    Status: "pending",
-                  },
-                  {
-                    sno: 2,
-                    name: "Ananya",
-                    tests: "Full Groom",
-                    pincode: 700091,
-                    contact: "9898989898",
-                    Status: "accepted",
-                  },
-                ].map((data) => (
-                  <TableRow key={data.sno} data={data} />
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <DynamicTable headers={headers} data={data} />
         </main>
       </div>
     </div>
@@ -357,61 +347,5 @@ function Th({ children, className = "" }) {
   );
 }
 
-function StatusBadge({ status = "pending" }) {
-  const map = {
-    pending: "bg-amber-50 text-amber-700 border-amber-200",
-    accepted: "bg-emerald-50 text-emerald-700 border-emerald-200",
-    completed: "bg-sky-50 text-sky-700 border-sky-200",
-    rejected: "bg-rose-50 text-rose-700 border-rose-200",
-  };
-  const cls = map[status.toLowerCase()] || map.pending;
-  return (
-    <span
-      className={`inline-flex items-center rounded-full border px-2 py-0.5 text-xs font-medium ${cls}`}
-    >
-      {status[0].toUpperCase() + status.slice(1)}
-    </span>
-  );
-}
-
-function ActionSelect() {
-  return (
-    <select className="rounded-md border border-slate-300 bg-white px-2 py-1 text-xs focus:ring-2 focus:ring-orange-400">
-      <option>Accept</option>
-      <option>Reject</option>
-      <option>Pending</option>
-      <option>Completed</option>
-    </select>
-  );
-}
-
-function Td({ children, align = "center" }) {
-  const alignCls =
-    align === "left"
-      ? "text-left"
-      : align === "right"
-      ? "text-right"
-      : "text-center";
-  return <td className={`px-3 py-2 ${alignCls}`}>{children}</td>;
-}
-
-function TableRow({ data }) {
-  const { sno, name, tests, pincode, contact, Status } = data;
-  return (
-    <tr className="odd:bg-white even:bg-slate-50 hover:bg-slate-100">
-      <Td>{sno}</Td>
-      <Td align="left">{name}</Td>
-      <Td align="left">{tests}</Td>
-      <Td>{pincode}</Td>
-      <Td>{contact}</Td>
-      <Td>
-        <StatusBadge status={Status} />
-      </Td>
-      <Td>
-        <ActionSelect />
-      </Td>
-    </tr>
-  );
-}
 
 export default GroomerDashboard;
