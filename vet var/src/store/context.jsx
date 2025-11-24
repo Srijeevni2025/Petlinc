@@ -1,17 +1,14 @@
-import { createContext, useState } from "react";
+import { createContext, useRef, useState } from "react";
 
 export const GlobalContext = new createContext()
 
  function ContextProvider({children}){
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [loggedInUser, setLoggedInUser] = useState({});
+    
+    const isLoggedIn = useRef(false);
 
     return (
         <GlobalContext.Provider value = {{
-            isLoggedIn,
-            setIsLoggedIn,
-            loggedInUser, 
-            setLoggedInUser
+             isLoggedIn
             }}>
             {children}
             </GlobalContext.Provider>

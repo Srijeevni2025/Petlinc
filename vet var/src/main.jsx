@@ -3,8 +3,7 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import LabList from './components/LabList.jsx'
-import LabProfile from './components/LabProfile.jsx'
+
 import MyProfile from './components/MyProfile.jsx'
 import GroomingPackages from './pages/GroomingPackages'
 import SignIn from './pages/Signin'
@@ -22,6 +21,11 @@ import {Toaster} from "react-hot-toast"
 import PetSection from './components/PetSection'
 import ContextProvider from './store/context'
 import BecomePartner from './pages/BecomePartner'
+import GroomersList from './pages/Groomers'
+import ProtectedRoute from './components/ProtectedRoute'
+import MyBookings from './pages/MyBookings'
+import ComparePage from './components/ComparePage'
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -33,20 +37,24 @@ createRoot(document.getElementById('root')).render(
         <Routes>
           <Route element = {<Navbar/>}/>
           <Route path = "/" element = {<App/>}/>
-          <Route path = "lablist" element = {<LabList/>}/>
-          <Route path = "LabProfile" element = {<LabProfile/>}/>
+          
+          
           <Route path = "MyProfile" element = {<MyProfile/>}/>
           <Route path = "/grooming-packages" element = {<GroomingPackages/>}/>
           <Route path = "/signin" element = {<SignIn/>}/>
           <Route path = "/signup" element = {<Signup/>}/>
           <Route path = "/BookingPage" element = {<BookingPage/>}/>
-          <Route path = "/GroomingCenterProfile" element = {<GroomingCenterProfile/>}/>
+          <Route path = "/GroomingCenterProfile/:id" element = {<GroomingCenterProfile/>}/>
           <Route path = "/GroomingCenterBooking" element = {<GroomingCenterBooking/>}/>
-          <Route path = "/CheckoutPage" element = {<CheckoutPage/>}/>
+          <Route path = "/CheckoutPage" element = {<ProtectedRoute><CheckoutPage/></ProtectedRoute>}/>
           <Route path = "/GroomerDashboard" element = {<GroomerDashboard/>}/>
           <Route path = "/MyProfile" element = {<MyProfile/>}/>
           <Route path = "/PetSection" element  ={<PetSection/>}/>
           <Route path = "/becomepartner" element = {<BecomePartner/>}/>
+          <Route path = "/groomers" element = {<GroomersList/>}/>
+          <Route path = "/my-bookings" element = {<MyBookings/>}/>
+          <Route path = "/compare-page" element = {<ComparePage/>}/>
+          
         </Routes>
         
     </BrowserRouter>

@@ -1,0 +1,8 @@
+authtoken: cr_33kr4ELRNfZJmnbqgxPS8KrfU6i
+tunnels:
+  backend:
+    proto: http
+    addr: 5000
+  frontend:
+    proto: http
+    addr: 5173

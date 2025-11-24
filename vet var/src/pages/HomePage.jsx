@@ -766,6 +766,8 @@ import Footer from "@/components/Footer";
 import NavbarSkeleton from "@/ui/NavbarSkeleton";
 import GroomingPackages from "./GroomingPackages";
 import GroomingCategory from "@/components/GroomingCategory";
+import GroomerCTA from "@/components/GroomerCTA";
+import PartnerGroomingCategory from "@/components/PartnerGroomingCategory";
 
 // // ---------------- NAVBAR ----------------
 
@@ -773,46 +775,51 @@ import GroomingCategory from "@/components/GroomingCategory";
 // ---------------- HOME PAGE ----------------
 export default function HomePage() {
 
-  const {isPending, data:userData, isError, isFetching, isRefetching, isStale} = useQuery({
-    queryKey:['userData'],
-    queryFn:async function(){
-       const res = await axios({
-        method:'get',
-        url:'http://localhost:4000/api/v1/users/get-me',
-        headers:{
-          "Content-Type":'application/json'
-        },
-        withCredentials:true,
-        stale:Infinity
-       })
+  // const {isPending, data:userData, isError, isFetching, isRefetching, isStale} = useQuery({
+  //   queryKey:['userData'],
+  //   queryFn:async function(){
+  //      const res = await axios({
+  //       method:'get',
+  //       url:'http://localhost:4000/api/v1/users/get-me',
+  //       headers:{
+  //         "Content-Type":'application/json'
+  //       },
+  //       withCredentials:true,
+  //       stale:Infinity
+  //      })
       
-       return res.data;
-    }
-  })
+  //      return res.data;
+  //   }
+  // })
    
   
   return (
     <>
     <div className="bg-white min-h-screen font-sans">
       
-      {console.log(userData)}
+      
       <Navbar/>
       {/* HERO SECTION */}
       <HomePageHeroSection/>
-     
-      {/* WHY CHOOSE US */}
-        <WhyChooseUs/>
+
       {/* GROOMING PARTNERS */}
              <GrommingPartners/>
-
-      {/* GROOMING PACKAGES */}
+      
+     
+     {/* GROOMING PACKAGES */}
       <GroomingCategory />
+      {/* Partner grooming category */}
+      <PartnerGroomingCategory/>
+      {/* WHY CHOOSE US */}
+        <WhyChooseUs/>
+      
+      
 
       
       {/* Testimonials */}
       <Testimonials/>
       {/* PARTNER CTA */}
-      <section className="text-center mt-20 py-20 bg-orange-500 text-white">
+      {/* <section className="text-center mt-20 py-20 bg-orange-500 text-white">
         <h2 className="text-3xl font-bold">Are you a Pet Groomer?</h2>
         <p className="mt-3 max-w-xl mx-auto text-orange-100">
           Partner with Petlinc and reach thousands of pet parents looking for trusted grooming services.
@@ -823,7 +830,8 @@ export default function HomePage() {
         >
           Become a Partner
         </Link>
-      </section>
+      </section> */}
+      <GroomerCTA/>
 
       {/* FOOTER */}
       <Footer/>

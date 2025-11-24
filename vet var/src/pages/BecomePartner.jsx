@@ -25,9 +25,9 @@ export default function BecomePartner() {
             Get discovered by thousands of pet parents looking for grooming services.  
             We’ll help you grow your business while you focus on what you love — caring for pets.
           </p>
-          <button className="mt-8 px-8 py-3 bg-orange-600 hover:bg-orange-700 text-white rounded-full text-lg font-semibold shadow-md transition">
+          <a href = "#become-a-partner"><button className="mt-8 px-8 py-3 bg-orange-600 hover:bg-orange-700 text-white rounded-full text-lg font-semibold shadow-md transition">
             Become a Partner
-          </button>
+          </button></a>
         </div>
       </section>
 
@@ -92,7 +92,7 @@ export default function BecomePartner() {
       </section>
 
       {/* FORM SECTION */}
-      <section className="py-20 max-w-4xl mx-auto px-6">
+      <section id = "become-a-partner" className="py-20 max-w-4xl mx-auto px-6">
         <div className="text-center mb-10">
           <h2 className="text-3xl font-bold text-gray-900 mb-2">Become a Petlinc Partner</h2>
           <p className="text-gray-600">Fill out your details and our team will get in touch within 24 hours.</p>
